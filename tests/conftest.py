@@ -1,5 +1,3 @@
-import os
-
 import pytest
 from appium.options.android import UiAutomator2Options
 from appium.options.ios import XCUITestOptions
@@ -19,8 +17,6 @@ def android_app_manage():
     config.android_capabilities["app"] = get_url_app(config.user_name, config.access_key, config.cloud_url)
 
     options = UiAutomator2Options().load_capabilities(config.android_capabilities)
-    # browser.config.driver_remote_url = config.remote_url
-    # browser.config.driver_options = options
     browser.config.driver = webdriver.Remote(
         config.remote_url,
         options=options
