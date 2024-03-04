@@ -28,11 +28,11 @@ class Settings(BaseSettings):
 
 
 def config_options(context):
+
     if context == 'bstack':
         load_env_credential()
-    load_env(context)
-    config = Settings()
-    if context == 'bstack':
+        load_env(context)
+        config = Settings()
         device_capabilities = {
             "platformName": "android",
             "platformVersion": "9.0",
@@ -48,6 +48,8 @@ def config_options(context):
             }
         }
     if context == 'local_real':
+        load_env(context)
+        config = Settings()
         device_capabilities = {
             "platformName": "android",
             "appium:automationName": "UiAutomator2",
@@ -58,6 +60,8 @@ def config_options(context):
             "appium:noReset": "true"
         }
     if context == 'local_emulator':
+        load_env(context)
+        config = Settings()
         device_capabilities = {
             "platformName": "android",
             "appium:automationName": "UiAutomator2",
